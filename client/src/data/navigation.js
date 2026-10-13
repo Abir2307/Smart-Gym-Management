@@ -6,13 +6,13 @@ export const navSections = [
   { label: "Plans", path: "/app/plans", roles: ["Super Admin", "Staff"] },
   { label: "Payments", path: "/app/payments", roles: ["Super Admin", "Staff"] },
   { label: "Reports", path: "/app/reports", roles: ["Super Admin", "Staff"] },
-  { label: "Play & Earn", path: "/app/play", roles: ["Super Admin", "Staff", "Trainer", "Member"] },
+  { label: "Play & Earn", path: "/app/play", roles: ["Member"] },
 ];
 
 export const rolePermissions = {
-  "Super Admin": ["Dashboard", "Attendance", "Members", "Trainers", "Plans", "Payments", "Reports", "Play & Earn"],
-  Staff: ["Dashboard", "Attendance", "Members", "Trainers", "Plans", "Payments", "Reports", "Play & Earn"],
-  Trainer: ["Dashboard", "Attendance", "Trainers", "Plans", "Play & Earn"],
+  "Super Admin": ["Dashboard", "Attendance", "Members", "Trainers", "Plans", "Payments", "Reports"],
+  Staff: ["Dashboard", "Attendance", "Members", "Trainers", "Plans", "Payments", "Reports"],
+  Trainer: ["Dashboard", "Attendance", "Trainers", "Plans"],
   Member: ["Dashboard", "Attendance", "Trainers", "Plans", "Play & Earn"],
 };
 
