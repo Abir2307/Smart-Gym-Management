@@ -67,7 +67,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="play" element={<PlayPage />} />
+            <Route
+              path="play"
+              element={
+                <ProtectedRoute roles={["Member"]}>
+                  <PlayPage />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
