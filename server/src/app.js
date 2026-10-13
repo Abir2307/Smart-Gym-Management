@@ -250,11 +250,11 @@ app.get(routeContract.resources.notifications, requireAuth, (_request, response)
   sendEnvelope(response, { items: listNotifications() });
 });
 
-app.get(routeContract.resources.games, requireAuth, async (request, response) => {
+app.get(routeContract.resources.games, requireAuth, requireRole(["Member"]), async (request, response) => {
   sendEnvelope(response, await listGameData(request.user.id));
 });
 
-app.post(`${routeContract.resources.games}/:challengeId/answer`, requireAuth, async (request, response) => {
+app.post(`${routeContract.resources.games}/:challengeId/answer`, requireAuth, requireRole(["Member"]), async (request, response) => {
   try {
     const result = await submitGameAnswer(request.user.id, request.params.challengeId, request.body?.answer);
     sendEnvelope(response, result);
